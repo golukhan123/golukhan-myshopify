@@ -1,0 +1,84 @@
+<div class="bg-gray-100 py-16">
+  <div class="container">
+    <div class="w-[500px] mx-auto text-center">
+      <h5 class="text-base font-bold mb-8">Newsletter</h5>
+
+      <h2 class="text-2xl font-normal mb-6">Take 20% off</h2>
+
+      <p class="text-base font-normal">
+        Subscribe for 20% off your first order and to be the first to know about
+        new product launches and restocks.
+      </p>
+
+      <form action="#" method="POST">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          class="w-full border-b-2 border-black placeholder:text-black py-2 pb-4 bg-transparent focus:outline-none mt-12 mb-10"
+          required
+        />
+
+        <button
+          type="submit"
+          class="text-sm font-normal border border-black px-7 py-3"
+        >
+          Join
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-black py-12 px-8">
+  <div class="flex justify-between">
+    <a href="{{ shop.url }}">
+      <img
+        src="{{ 'images/footer-logo.svg' | asset_url }}"
+        alt="{{ shop.name }}"
+        class="h-4"
+      />
+    </a>
+
+    <div class="grid grid-cols-2 gap-4">
+      <nav class="w-[145px]">
+        <h4 class="text-white font-base font-bold mb-6">About</h4>
+        <ul class="space-y-3">
+          <li>
+            <a href="#" class="text-white font-base font-normal">Shipping</a>
+          </li>
+          <li>
+            <a href="#" class="text-white font-base font-normal"
+              >Refund Policy</a
+            >
+          </li>
+          <li>
+            <a href="#" class="text-white font-base font-normal"
+              >Privacy Policy</a
+            >
+          </li>
+          <li>
+            <a href="#" class="text-white font-base font-normal">Help</a>
+          </li>
+          <li>
+            <a href="#" class="text-white font-base font-normal">FAQ</a>
+          </li>
+        </ul>
+      </nav>
+
+      <nav>
+        <h4 class="text-white font-base font-bold mb-6">Contact</h4>
+        <ul class="space-y-3">
+          <li>
+            <a
+              href="mailto:Hello@dyrka.com"
+              class="text-white font-base font-normal"
+              >Hello@dyrka.com</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</footer>

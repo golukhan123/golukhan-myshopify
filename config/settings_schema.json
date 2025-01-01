@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "text",
+        "id": "store_name",
+        "label": "Store Name"
+      },
+      {
+        "type": "text",
+        "id": "store_address",
+        "label": "Store Address"
+      }
+    ]
+  }
+]
