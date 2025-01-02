@@ -5,23 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ shop.name }}</title>
   <meta name="description" content="Welcome to {{ shop.name }} - Your go-to store for high-quality products.">
-
-  <!-- Include any additional Shopify header content -->
   {{ content_for_header }}
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="{{ 'tailwind.css' | asset_url }}">
-  <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
 </head>
-
 <body>
-  <!-- Header -->
-  {% render 'header' %}
-
-  <!-- Main Content -->
-  <main>{{ content_for_layout }}</main>
-
-  <!-- Footer -->
-  {% render 'footer' %}
+  <header>
+    <h1><a href="{{ shop.url }}">{{ shop.name }}</a></h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/collections/all">Shop</a>
+      <a href="/cart">Cart</a>
+    </nav>
+  </header>
+  <main>
+    {{ content_for_layout }}
+  </main>
+  <footer>
+    <p>&copy; {{ shop.name }} {{ 'now' | date: '%Y' }}</p>
+  </footer>
 </body>
 </html>
