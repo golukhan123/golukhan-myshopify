@@ -1,3 +1,114 @@
-<footer>
-  <p>&copy; {{ shop.name }} {{ 'now' | date: '%Y' }}</p>
-</footer>
+<footer class="py-12 bg-black">
+  <div class="container mx-auto border-t-4 border-white py-12">
+    <div class="grid gap-12 xl:grid-cols-6 xl:gap-24">
+      
+      <div class="col-span-2 ">
+        <a href="{{ shop.url }}">
+          <img 
+            src="{{ 'images/footer-logo.svg' | asset_url }}" 
+            alt="{{ Logo }}" 
+            class="h-35 w-64"
+          >
+        </a>
+      </div>
+
+      <div>
+        <ul>
+          <li class="mb-4">
+            <h3 class="font-medium text-xs uppercase text-white">Whatsapp</h3>
+            <a href="#" class="font-medium text-white text-xs ">+31 (0)6 27 17 14 39</a>
+          </li>
+
+           <li class="mb-4">
+            <h3 class="font-medium text-xs uppercase text-white">email</h3>
+            <a href="#" class="font-medium text-white text-xs ">info@lemiriandco.com</a>
+          </li>
+
+           <li class="mb-4">
+            <h3 class="font-medium text-xs uppercase text-white">address</h3>
+            <a href="#" class="font-medium text-white text-xs ">2501 S Delaware Ave, Milwaukee, WI 53207-1907</a>
+          </li>
+
+
+        </ul>
+      </div>
+
+      <div>
+        <ul>
+          <li class="mb-4">
+
+              <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="font-medium text-xs uppercase text-white inline-flex items-center" type="button">Watches <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+              </svg>
+              </button>
+
+              <!-- Dropdown menu -->
+              <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                  <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                    </li>
+                  </ul>
+              </div>
+          </li>
+
+          <li class="mb-4">
+
+              <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="font-medium text-xs uppercase text-white inline-flex items-center" type="button">Watches <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+              </svg>
+              </button>
+
+              <!-- Dropdown menu -->
+              <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                  <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+                    </li>
+                  </ul>
+              </div>
+          </li>
+
+           <li class="mb-4">
+            <a href="#" class="font-medium text-xs uppercase text-white">Jewelry</a>
+          </li>
+          <li class="mb-4">
+            <a href="#" class="font-medium text-xs uppercase text-white">About</a>
+          </li>
+        </ul>
+      </div>
+
+       <div>
+        <ul>
+          <li class="mb-4">
+          
+            <a href="#" class="font-medium text-xs uppercase text-white">Instagram</a>
+          </li>
+           <li class="mb-4">
+            <a href="#" class="font-medium text-xs uppercase text-white">Youtube</a>
+          </li>
+           <li class="mb-4">
+            <a href="#" class="font-medium text-xs uppercase text-white">Facebook</a>
+          </li>
+
+
+        </ul>
+      </div>

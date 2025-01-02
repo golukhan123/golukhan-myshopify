@@ -1,7 +1,137 @@
-<header>
-  <h1>{{ shop.name }}</h1>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/collections/all">Shop</a>
-  </nav>
+<header class="bg-black py-10">
+  <div class="container mx-auto">
+    <nav class="flex justify-between items-center">
+     <a href="{{ shop.url }}">
+      <img src="{{ 'images/logo.png' | asset_url }}" alt="{{ shop.name }}" class="h-8 w-64">
+    </a>
+      <ul class="flex space-x-8">
+        <li>
+          <a href="#" title="Watches" class="text-xs font-medium uppercase text-white">Watches</a>
+        </li>
+        <li>
+          <a href="#" title="Jewelry" class="text-xs font-medium uppercase text-white">Jewelry</a>
+        </li>
+        <li>
+          <a href="#" title="hamburger">
+            <img src="{{ 'images/hamburger.svg' | asset_url }}" alt="{{ Hamburger }}" class="h-5 w-8">
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </header>
+
+
+<section class="breadcrumb-section bg-black py-4">
+<div class="container mx-auto">
+<nav class="flex" aria-label="Breadcrumb">
+  <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+
+    <li class="inline-flex items-center">
+      <a href="#" class="inline-flex items-center font-medium text-xs uppercase text-white">
+        Home
+      </a>
+    </li>
+
+    <li>
+      <div class="flex items-center">
+        <svg class="w-2 h-2 mx-1 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+        </svg>
+        <a href="#" class="ms-1 text-xs font-medium uppercase text-white">curated watches</a>
+      </div>
+    </li>
+
+    <li aria-current="page">
+      <div class="flex items-center">
+        <svg class="w-2 h-2 text-white mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+        </svg>
+        <span class="ms-1 font-medium text-xs uppercase text-white">Flowbite</span>
+      </div>
+    </li>
+
+  </ol>
+</nav>
+
+</div>
+</section>
+
+<section class="curated-inspected-quality bg-black py-12">
+  <div class="container mx-auto">
+    <div class="grid grid-cols-12 gap-2">
+      <div class="col-span-8">
+        <h1 class="text-6xl tracking-tighter font-normal mb-4 text-white">
+          Curated and Inspected for Quality
+        </h1>
+        <p class="font-normal text-base text-white">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="filter-section bg-black py-12">
+  <div class="container mx-auto border-b border-white py-6">
+    <div class="grid grid-cols-12 gap-2">
+
+      <div class="col-span-6">
+        <div class="filter-button flex justify-between ">
+          <button class="rounded-none text-white border font-medium	text-xs px-5 py-3 uppercase">Filter watches</button>
+        </div>
+      </div>
+
+      <div class="col-span-6">
+      <form>
+        <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:white focus:border-white block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 placeholder-white text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          <option selected>Choose a country</option>
+          <option value="US">United States</option>
+          <option value="CA">Canada</option>
+          <option value="FR">France</option>
+          <option value="DE">Germany</option>
+        </select>
+        </form>
+      </div>
+
+    </div>
+</section> 
+
+
+<section class="products-list">
+<div class="container mx-auto">
+  <div class="grid grid-cols-4 gap-2">
+ 
+
+<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="mx-auto p-3 justify-center flex">
+      <a href="#">
+         <img src="{{ 'images/Day-Date 18238 ‘Onyx Pinball’.png' | asset_url }}" alt="{{ Watch }}" class="h-44	w-44">
+      </a>
+    </div>
+
+    <div class="p-5">
+      <a href="#">
+        <h2 class="mb-2 text-2xl font-normal text-sm dark:text-white">Rolex</h2>
+      </a>
+
+      <h5 class="mb-3 text-lg font-medium	">
+        <a href="#">Day-Date 18238 ‘Onyx Pinball’</a>
+      </h5>
+      <p><span>{{cart.total_price}}</span></p>
+    </div>
+</div>
+
+
+  <h2>textedgdg</h2>
+
+  <h2>textedgdg</h2>
+  <h2>textedgdg</h2>
+  </div>
+</div>
+</section>
+
+
+
+
