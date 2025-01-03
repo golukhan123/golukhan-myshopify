@@ -1,9 +1,245 @@
-<h1>{{ collection.title }}</h1>
-<ul>
-  {% for product in collection.products %}
+<section class="curated-inspected-quality bg-black py-12">
+  <div class="container mx-auto">
+    <div class="grid grid-cols-12 gap-2">
+      <div class="col-span-8">
+        <h1 class="text-6xl tracking-tighter font-normal mb-4 text-warning-100">Curated and Inspected for Quality</h1>
+
+        <p class="font-normal text-base text-gray-100">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="filter-section bg-black py-12">
+  <div class="container mx-auto border-b border-gray-400 py-6">
+    <div class="grid grid-cols-12 gap-2">
+      <div class="col-span-9">
+        <div class="filter-button">
+          <button class="rounded-none flex space-x-4  border border-warning-900 text-warning-900 font-medium text-xs px-5 py-3 uppercase">
+            <span> Filter watches</span>
+            <img src="{{ 'images/fillter.svg' | asset_url }}" alt="{{ shop.name }}" height="12px" width="16px">
+          </button>
+        </div>
+      </div>
+
+      <div class="col-span-3">
+        {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+        <form>
+          <select
+            name="sort_by"
+            class="bg-black border-warning-900 text-sm focus:outline-none  focus:ring-warning-900  w-full p-2.5 placeholder-warning-900 text-warning-900 border rounded-none"
+            id="SortBy"
+            aria-describedby="a11y-refresh-page-message"
+          >
+            {%- for option in collection.sort_options -%}
+              <option
+                value="{{ option.value | escape }}"
+                {% if option.value == sort_by %}
+                  selected="selected"
+                {% endif %}
+              >
+                {{ option.name | escape }}
+              </option>
+            {%- endfor -%}
+          </select>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %}
+  <h1>{{ collection.title }}</h1>
+  <ul>
     <li>
       <a href="{{ product.url }}">{{ product.title }}</a>
       <p>{{ product.price | money }}</p>
     </li>
-  {% endfor %}
-</ul>
+  </ul>
+{% endcomment %}
+
+{% comment %}
+  {%- paginate collection.products by 1 -%}
+    {% for product in collection.products %}
+      <div class="max-w-sm bg-black border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="mx-auto p-6 justify-center flex">
+          <a href="{{ product.url }}" title="{{ product.title }}">
+            <img src="{{ product.featured_image | img_url }}" alt="{{ product.title }}" height="18px" width="180px">
+          </a>
+        </div>
+
+        <div class="p-5">
+          <h2 class="mb-2 text-2xl font-normal text-sm text-white uppercase">
+            <a href="#">{{ product.collections }}</a>
+          </h2>
+
+          <h5 class="mb-3 text-lg font-medium	text-white">
+            <a href="#">{{ product.title }}</a>
+          </h5>
+          <p class="mb-3 text-lg font-medium text-white flex space-x-4">
+            <span>{{ product.price | money }}</span> <span class="line-through">{{ product.compare_at_price_max }}</span>
+          </p>
+        </div>
+      </div>
+    {% endfor %}
+
+    {%- if paginate.pages > 1 -%}
+      {%- render 'pagination', paginate: paginate -%}
+    {%- endif -%}
+  {%- endpaginate -%}
+{% endcomment %}
+
+<section class="products-list bg-black py-12">
+  <div class="container mx-auto">
+    {%- paginate collection.products by 2 -%}
+      <div class="grid grid-cols-4 gap-4">
+        {% for product in collection.products %}
+          <div class="shadow dark:border-gray-300">
+            <div class="mx-auto py-10 border border-gray-300 justify-center flex">
+              <a href="{{ product.url }}" title="{{ product.title }}">
+                <img
+                  src="{{ product.featured_image | img_url: '400x400' }}"
+                  alt="{{ product.title }}"
+                  width="180px"
+                  height="180px"
+                >
+              </a>
+            </div>
+
+            <div class="py-3">
+              <h2 class="mb-1 font-normal text-sm text-warning-100 uppercase">
+                <a href="#">{{ product.tags }}</a>
+              </h2>
+
+              <h5 class="mb-5 text-lg font-medium	text-warning-100">
+                <a href="#">{{ product.title }}</a>
+              </h5>
+
+              <p class="text-lg font-medium text-warning-900 flex space-x-4">
+                <del class="text-warning-200">{{ product.compare_at_price_max | money }}</del>
+                <span>{{ product.price | money }}</span>
+              </p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      {%- if paginate.pages > 1 -%}
+        {%- render 'pagination', paginate: paginate -%}
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</section>
+
+<section class="accordion-section bg-black">
+  <div class="container mx-auto">
+    <div class="grid-cols-12">
+      <!-- Accordion Item 1 -->
+      <div>
+        <button
+          onclick="toggleAccordion(1)"
+          class="w-full flex justify-between items-center py-5 text-warning-100 focus:outline-none text-2xl	font-medium"
+        >
+          <span>What is a certified pre-owned watch?</span>
+          <span id="icon-1" class="text-warning-100 transition-transform duration-300">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              class="w-4 h-4"
+              aria-hidden="true"
+            >
+              <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
+            </svg>
+          </span>
+        </button>
+        <div id="content-1" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+          <p class="pb-5 text-sm text-base text-gray-100 font-normal">
+            A certified pre-owned watch is a timepiece previously owned but has undergone a thorough inspection,
+            servicing, and authentication process by certified professionals. Precision Watches certified pre-owned
+            watches are meticulously examined by our expert watchmakers to ensure they meet strict standards of quality,
+            performance, and authenticity. Our certified pre-owned watches often come with a warranty. They are restored
+            to as close to their original condition as possible, assuring our customers of buying a high-quality,
+            genuine watch that is more affordable than a brand-new model.
+          </p>
+        </div>
+      </div>
+
+      <!-- Accordion Item 2 -->
+      <div>
+        <button
+          onclick="toggleAccordion(2)"
+          class="w-full flex justify-between items-center py-5 text-warning-100 focus:outline-none text-2xl	font-medium"
+        >
+          <span>How do you ensure the quality and authenticity of pre-owned watches?</span>
+          <span id="icon-2" class="text-warning-100 transition-transform duration-300">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              class="w-4 h-4"
+              aria-hidden="true"
+            >
+              <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
+            </svg>
+          </span>
+        </button>
+        <div id="content-2" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+          <p class="pb-5 text-sm text-gray-100">
+            What is the difference between pre-owned, vintage, and new watches?
+          </p>
+        </div>
+      </div>
+
+      <!-- Accordion Item 3 -->
+      <div>
+        <button
+          onclick="toggleAccordion(3)"
+          class="w-full flex justify-between items-center py-5 text-warning-100 focus:outline-none text-2xl	font-medium"
+        >
+          <span>Can I trade-in or sell my watch to Lemiri & Co?</span>
+          <span id="icon-3" class="text-warning-100 transition-transform duration-300">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              class="w-4 h-4"
+              aria-hidden="true"
+            >
+              <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
+            </svg>
+          </span>
+        </button>
+        <div id="content-3" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+          <p class="pb-5 text-sm text-gray-100">What is the return policy for pre-owned watches?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Define SVGs once for reuse
+  const plusSVG = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+      <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
+    </svg>
+  `;
+  const minusSVG = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+      <path d="M3.75 7.25a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Z" />
+    </svg>
+  `;
+
+  function toggleAccordion(index) {
+    const content = document.getElementById(`content-${index}`);
+    const icon = document.getElementById(`icon-${index}`);
+    const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+    content.style.maxHeight = isOpen ? '0' : `${content.scrollHeight}px`;
+    icon.innerHTML = isOpen ? plusSVG : minusSVG;
+  }
+</script>

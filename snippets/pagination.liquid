@@ -1,0 +1,65 @@
+{% if paginate.parts.size > 2 %}
+  <div class="pagination-wrapper flex justify-center py-12 items-center">
+    {% comment %} <p>Page</p> {% endcomment %}
+
+    <nav class="pagination" role="navigation">
+      <ul class="pagination-list flex items-center space-x-5" role="list">
+        {% if paginate.previous %}
+          <li>
+            <a
+              href="{{ paginate.previous.url }}{{ anchor }}"
+              class="pagination-item pagination-item-next pagination-item-arrow block text-center items-center h-9 w-9 rotate-180 flex justify-center"
+            >
+              <img
+                src="{{ 'images/right-arrow.svg' | asset_url }}"
+                alt="{{ Arrow }}"
+                height="15px"
+                width="15px"
+                class="inline-block w-4 h-4"
+              >
+            </a>
+          </li>
+        {% endif %}
+        {% for part in paginate.parts %}
+          <li>
+            {% if part.is_link %}
+              <a
+                href="{{ part.url }}{{ anchor }}"
+                class="pagination-item inline-block text-white text-center font-normal flex justify-center text-sm items-center h-9 w-9"
+              >
+                {{ part.title }}
+              </a>
+            {% else %}
+              {% if part.title == paginate.current_page %}
+                <a
+                  class="pagination-item pagination-item-current flex justify-center text-sm font-normal text-warning-900 inline-block text-center items-center h-9 w-9 border border-warning-900"
+                >
+                  {{- part.title -}}
+                </a>
+              {% else %}
+                <span class="pagination-item">{{ part.title }}</span>
+              {% endif %}
+            {% endif %}
+          </li>
+        {% endfor %}
+
+        {% if paginate.next %}
+          <li>
+            <a
+              href="{{ paginate.next.url }}{{ anchor }}"
+              class="pagination-item pagination-item--prev pagination-item-arrow block text-center items-center h-9 w-9 flex justify-center"
+            >
+              <img
+                src="{{ 'images/right-arrow.svg' | asset_url }}"
+                alt="{{ Arrow }}"
+                height="15px"
+                width="15px"
+                class="inline-block w-4 h-4"
+              >
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+{% endif %}
