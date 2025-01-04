@@ -1,29 +1,36 @@
 <header class="bg-black py-10">
   <div class="container mx-auto">
-    <nav class="flex justify-between items-center">
-     <a href="{{ shop.url }}">
-      <img src="{{ 'images/logo.svg' | asset_url }}" alt="{{ shop.name }}" height="32px" width="200px" class="h-8 w-48">
-    </a>
-      <ul class="flex space-x-8">
-        <li>
-          <a href="#" title="Watches" class="text-xs font-medium uppercase text-warning-100">Watches</a>
-        </li>
-        <li>
-          <a href="#" title="Jewelry" class="text-xs font-medium uppercase text-warning-100">Jewelry</a>
-        </li>
-        <li>
-          <a href="#" title="hamburger">
-            <img src="{{ 'images/hamburger.svg' | asset_url }}" alt="{{ Hamburger }}" width="32px" height="22px" class="h-5 w-8">
-          </a>
-        </li>
-      </ul>
-    </nav>
+    {% if linklists['main-menu'] %}
+      <nav class="flex justify-between items-center">
+        <a href="{{ shop.url }}">
+          <img
+            src="{{ 'images/logo.svg' | asset_url }}"
+            alt="{{ shop.name }}"
+            height="32px"
+            width="200px"
+            class="h-8 w-48"
+          >
+        </a>
+        <ul class="flex space-x-8">
+          {% for link in linklists['main-menu'].links %}
+            <li>
+              <a href="{{ link.url }}" class="text-xs font-medium uppercase text-warning-100">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+
+          <li>
+            <a href="#" title="hamburger">
+              <img
+                src="{{ 'images/hamburger.svg' | asset_url }}"
+                alt="{{ Hamburger }}"
+                width="32px"
+                height="22px"
+                class="h-5 w-8"
+              >
+            </a>
+          </li>
+        </ul>
+      </nav>
+    {% endif %}
   </div>
 </header>
-
-
-
-
-
-
-

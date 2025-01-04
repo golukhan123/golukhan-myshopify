@@ -31,7 +31,7 @@
         <form>
           <select
             name="sort_by"
-            class="bg-black border-warning-900 text-sm focus:outline-none  focus:ring-warning-900  w-full p-2.5 placeholder-warning-900 text-warning-900 border rounded-none"
+            class="bg-black border-warning-900 text-sm focus:outline-none  focus:ring-warning-900 w-full p-2.5 placeholder-warning-900 text-warning-900 border rounded-none"
             id="SortBy"
             aria-describedby="a11y-refresh-page-message"
           >
@@ -95,7 +95,7 @@
 
 <section class="products-list bg-black py-12">
   <div class="container mx-auto">
-    {%- paginate collection.products by 2 -%}
+    {%- paginate collection.products by 4 -%}
       <div class="grid grid-cols-4 gap-4">
         {% for product in collection.products %}
           <div class="shadow dark:border-gray-300">
