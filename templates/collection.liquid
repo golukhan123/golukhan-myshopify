@@ -2,7 +2,7 @@
   <div class="container mx-auto">
     <div class="grid grid-cols-12 gap-2">
       <div class="col-span-8">
-        <h1 class="text-6xl tracking-tighter font-normal mb-4 text-warning-100">Curated and Inspected for Quality</h1>
+        <h1 class="text-6xl tracking-tighter mb-4 text-warning-100 font-normal">Curated and Inspected for Quality</h1>
 
         <p class="font-normal text-base text-gray-100">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -31,7 +31,7 @@
         <form>
           <select
             name="sort_by"
-            class="bg-black border-warning-900 text-sm focus:outline-none  focus:ring-warning-900 w-full p-2.5 placeholder-warning-900 text-warning-900 border rounded-none"
+            class="bg-black border-warning-900 focus:outline-none  focus:ring-warning-900 w-full p-2.5 placeholder-warning-900 text-warning-900 border rounded-none uppercase font-medium text-xs"
             id="SortBy"
             aria-describedby="a11y-refresh-page-message"
           >
@@ -111,12 +111,17 @@
             </div>
 
             <div class="py-3">
-              <h2 class="mb-1 font-normal text-sm text-warning-100 uppercase">
-                <a href="#">{{ product.tags }}</a>
-              </h2>
+              <ul class="mb-2">
+                {% for tag in product.tags %}
+                  <li class="inline-block mb-1 font-normal text-sm text-warning-100 uppercase">
+                    {{ tag | link_to_tag: tag }}
+                  </li>
+                {% endfor %}
+              </ul>
 
+              
               <h5 class="mb-5 text-lg font-medium	text-warning-100">
-                <a href="#">{{ product.title }}</a>
+                <a href="{{ product.url }}">{{ product.title }}</a>
               </h5>
 
               <p class="text-lg font-medium text-warning-900 flex space-x-4">
@@ -143,7 +148,7 @@
           onclick="toggleAccordion(1)"
           class="w-full flex justify-between items-center py-5 text-warning-100 focus:outline-none text-2xl	font-medium"
         >
-          <span>What is a certified pre-owned watch?</span>
+          <h3>What is a certified pre-owned watch?</h3>
           <span id="icon-1" class="text-warning-100 transition-transform duration-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -174,7 +179,7 @@
           onclick="toggleAccordion(2)"
           class="w-full flex justify-between items-center py-5 text-warning-100 focus:outline-none text-2xl	font-medium"
         >
-          <span>How do you ensure the quality and authenticity of pre-owned watches?</span>
+          <h3>How do you ensure the quality and authenticity of pre-owned watches?</h3>
           <span id="icon-2" class="text-warning-100 transition-transform duration-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -200,7 +205,7 @@
           onclick="toggleAccordion(3)"
           class="w-full flex justify-between items-center py-5 text-warning-100 focus:outline-none text-2xl	font-medium"
         >
-          <span>Can I trade-in or sell my watch to Lemiri & Co?</span>
+          <h3>Can I trade-in or sell my watch to Lemiri & Co?</h3>
           <span id="icon-3" class="text-warning-100 transition-transform duration-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"

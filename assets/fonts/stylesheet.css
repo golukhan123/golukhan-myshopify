@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'MADE Mirage';
+    src: url('MADEMirage-Bold.eot');
+    src: local('MADE Mirage Bold'), local('MADEMirage-Bold'),
+        url('MADEMirage-Bold.eot?#iefix') format('embedded-opentype'),
+        url('MADEMirage-Bold.woff2') format('woff2'),
+        url('MADEMirage-Bold.woff') format('woff'),
+        url('MADEMirage-Bold.ttf') format('truetype'),
+        url('MADEMirage-Bold.svg#MADEMirage-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MADE Mirage';
+    src: url('MADEMirage-Medium.eot');
+    src: local('MADE Mirage Medium'), local('MADEMirage-Medium'),
+        url('MADEMirage-Medium.eot?#iefix') format('embedded-opentype'),
+        url('MADEMirage-Medium.woff2') format('woff2'),
+        url('MADEMirage-Medium.woff') format('woff'),
+        url('MADEMirage-Medium.ttf') format('truetype'),
+        url('MADEMirage-Medium.svg#MADEMirage-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+

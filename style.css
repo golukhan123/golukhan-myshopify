@@ -2,6 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'MADE Mirage';
+  src: url('MADEMirage-Bold.eot');
+  src: local('MADE Mirage Bold'), local('MADEMirage-Bold'),
+      url('../fonts/MADEMirage-Bold.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/MADEMirage-Bold.woff2') format('woff2'),
+      url('../fonts/MADEMirage-Bold.woff') format('woff'),
+      url('../fonts/MADEMirage-Bold.ttf') format('truetype'),
+      url('../fonts/MADEMirage-Bold.svg#MADEMirage-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MADE Mirage';
+  src: url('MADEMirage-Medium.eot');
+  src: local('MADE Mirage Medium'), local('MADEMirage-Medium'),
+      url('../fonts/MADEMirage-Medium.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/MADEMirage-Medium.woff2') format('woff2'),
+      url('../fonts/MADEMirage-Medium.woff') format('woff'),
+      url('../fonts/MADEMirage-Medium.ttf') format('truetype'),
+      url('../fonts/MADEMirage-Medium.svg#MADEMirage-Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MADE Mirage';
+  src: url('MADEMirage.eot');
+  src: local('MADE Mirage'), local('MADEMirage'),
+      url('../fonts/MADEMirage.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/MADEMirage.woff2') format('woff2'),
+      url('../fonts/MADEMirage.woff') format('woff'),
+      url('../fonts/MADEMirage.ttf') format('truetype'),
+      url('../fonts/MADEMirage.svg#MADEMirage') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Styrene A bold Trial";
+  src: url("./assets/fonts/Styrene\ A\ bold\ Trial.eot");
+  src: url("https://db.onlinewebfonts.com/t/59f205a03656357a8a3e7b0f96541db1.eot?#iefix")format("embedded-opentype"),
+  url("./assets/fonts/Styrene\ A\ Bold\ Trial.woff2")format("woff2"),
+  url("./assets/fonts/Styrene\ A\ Bold\ Trial.woff")format("woff"),
+  url("./assets/fonts/MADEMirage-Bold.ttf")format("truetype"),
+  url("./assets/fonts/Styrene\ A\ Bold\ Trial.svg")format("svg");
+}
+/* For h1 */
+h1 {
+ 
+  font-family: 'MADE Mirage', sans-serif;
+}
+
+/* For h2 */
+h2 {
+  font-family: 'MADE Mirage', sans-serif;
+}
+
+/* For h3 */
+h3 {
+  font-family: 'MADE Mirage', sans-serif;
+}
+
+/* For h4 */
+h4 {
+  font-family: 'MADE Mirage', sans-serif;
+}
+
+/* For h5 */
+h5 {
+  font-family: 'MADE Mirage', sans-serif;
+}
+
+/* For h6 */
+h6 {
+  font-family: 'MADE Mirage', sans-serif;
+}
+p {
+  /* font-family: "Styrene A Regular Trial"; */
+}
+
+.container {
+  max-width: 90%;
+  width: 1345px;
+  margin: auto;
+}
+
 .blogs-list .blog-article-title{
   -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -13,6 +103,117 @@
     text-overflow: ellipsis;
     height: 65px;
     line-height: 30px;
-    
-    
 }
+
+.product-details-card-slider .swiper {
+  position: initial;
+}
+
+.product-details-card-slider .swiper .swiper-button-prev {
+  height: 40px;
+  width: 40px;
+}
+
+.product-details-card-slider .swiper-button-next::after {
+  font-size: 0px !important;
+  background-image: url('../../assets/images/right-arrow-wihte.svg');
+  height: 30px;
+  width: 24px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.product-details-card-slider .swiper-button-prev::after {
+  font-size: 0px !important;
+ 
+  background-image: url('../../assets/images/left-arrow-white.svg');
+  height: 30px;
+  width: 24px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.product-details-card-slider .swiper .swiper-button-next {
+  height: 30px;
+  width: 24px;
+}
+
+.product-details-card-slider .swiper-button-prev,
+.product-details-card-slider .swiper-rtl .swiper-button-next {
+  left: 0px !important;
+  right: inherit;
+}
+
+.product-details-card-slider .swiper-button-prev,
+.product-details-card-slider .swiper-button-next {
+  top: 115px;
+  right: inherit;
+  left: 55px;
+}
+
+.product-details-card-slider .swiper-container {
+  width: 100%;
+  height: 400px;
+}
+
+/* General Swiper Container */
+.swiper-container {
+  overflow: hidden; /* Prevent overflow */
+  width: 100%;
+  height: 100%;
+  position: relative; /* Ensure proper positioning */
+}
+
+/* Wrapper inside Swiper */
+.swiper-wrapper {
+  overflow: hidden; /* Prevent content overflow */
+}
+
+/* Main slider images */
+.main-slider {
+  flex: 1;
+}
+
+.main-slider .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Thumbnail slider */
+.thumbnail-slider {
+  width: 120px; /* Adjust thumbnail width */
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.thumbnail-slider .swiper-slide {
+  height: 100px; /* Adjust thumbnail height */
+  width: 100%;
+  opacity: 0.5; /* Make inactive thumbnails less visible */
+  cursor: pointer;
+}
+
+.thumbnail-slider .swiper-slide-thumb-active {
+  opacity: 1; /* Highlight active thumbnail */
+  border: 2px solid #000; /* Optional border for active thumbnail */
+}
+
+.thumbnail-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Parent container for the sliders */
+.parent-container {
+  display: flex;
+  gap: 20px; /* Adjust space between thumbnails and main slider */
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+
+
