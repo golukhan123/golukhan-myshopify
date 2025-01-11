@@ -1,4 +1,4 @@
-<section class="products-list bg-black">
+<section class="products-list bg-black border-b border-gray-600 pb-8">
   <div class="container mx-auto">
     <div class="grid grid-cols-2 gap-4">
       <div class="shadow">
@@ -9,26 +9,21 @@
               alt="{{ product.title }}"
               width="550px"
               height="550px"
-              class=""
             >
           </a>
         </div>
       </div>
 
-      <div class="py-3">
-        <ul class="mb-2">
-          {% for tag in product.tags %}
-            <li class="inline-block mb-1 font-normal text-sm text-warning-900 uppercase">
-              {{ tag | link_to_tag: tag }}
-            </li>
-          {% endfor %}
-        </ul>
+      <div class="py-3 w-[432px]">
         <div class="flex items-center justify-between">
-          <h5 class="mb-5 text-4xl text-warning-100">
-            <a href="{{ product.url }}">{{ product.title }}</a>
-          </h5>
-
-          <div>
+          <ul class="mb-2">
+            {% for tag in product.tags %}
+              <li class="inline-block mb-1 font-normal text-sm text-warning-900 uppercase tracking-widest">
+                {{ tag | link_to_tag: tag }}
+              </li>
+            {% endfor %}
+          </ul>
+          <div class="dropdown-share-icon">
             <button
               id="dropdownDefaultButton"
               data-dropdown-toggle="dropdown"
@@ -47,9 +42,9 @@
             <!-- Dropdown menu -->
             <div
               id="dropdown"
-              class="z-10 absolute hiddenp-6 border border-gray-400 shadow rounded-lg p-3 w-44 bg-black"
+              class="z-10 absolute hiddenp-display border border-gray-400 shadow rounded-lg p-3 w-44 bg-black mt-2"
             >
-              <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+              <ul class="text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                 <li class="mb-3">
                   <a
                     href="https://www.instagram.com/your_username"
@@ -70,14 +65,14 @@
 
                 <li class="mb-3">
                   <a
-                    href="https://www.youtube.com/c/YourChannelName"
+                    href="https://www.facebook.com/{{ user.page_name }}"
                     target="_blank"
                     class="font-medium text-xs uppercase flex items-center gap-3 text-warning-900"
                     rel="noopener noreferrer"
                   >
                     <img
                       src="{{ 'images/facebook.png' | asset_url }}"
-                      alt="{{ shop.name }}"
+                      alt="{{ user.name }}"
                       height="16px"
                       width="16px"
                     >
@@ -85,9 +80,9 @@
                   </a>
                 </li>
 
-                <li class="">
+                <li>
                   <a
-                    href="https://www.facebook.com/your_page_name"
+                    href="https://twitter.com/{{ user.twitter_handle }}"
                     target="_blank"
                     class="flex items-center gap-3 font-medium text-xs uppercase text-warning-900"
                     rel="noopener noreferrer"
@@ -98,20 +93,24 @@
                       height="16px"
                       width="16px"
                     >
-                    twitter
+                    Twitter
                   </a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
+
+        <h5 class="mb-3 text-4xl text-warning-100">
+          <a href="{{ product.url }}">{{ product.title }}</a>
+        </h5>
         <p class="font-medium text-warning-100 flex space-x-4 items-center">
           <del class="text-warning-200 text-xl">{{ product.compare_at_price_max | money }}</del>
           <span class="text-2xl">{{ product.price | money }}</span>
         </p>
 
-        <div class="p-6 border border-gray-400 shadow mt-4">
-          <h5 class="mb-2 text-base font-medium text-warning-100 uppercase">Speak to a Watch Specialist</h5>
+        <div class="p-6 border border-gray-400 shadow mt-6">
+          <h6 class="mb-2 text-base font-medium text-warning-100 uppercase">Speak to a Watch Specialist</h6>
           <p class="font-normal text-gray-100 text-sm">
             Want to know more about the <span class="text-warning-900">Submariner Date (“Flat 4”) 16610LV? </span>We are
             happy to assist you!
@@ -152,119 +151,128 @@
           </ul>
         </div>
 
-        <h5 class="text-gray-100 font-medium text-xs uppercase my-4 text-center">
+        <h6 class="text-gray-100 font-medium text-xs uppercase mt-6 text-center">
           TWO YEAR INTERNATIONAL WARRANTY<br>
           Free shipping & Returns
-        </h5>
+        </h6>
       </div>
     </div>
   </div>
 </section>
 
-<section class="movment-list bg-black py-30">
-  <div class="container mx-auto">
-    <h2 class="text-4xl	text-warning-100 font-medium uppercase mb-5">Specifications</h2>
-    <div class="grid grid-cols-2 gap-4">
-      <div>
-        <ul class="list-none mb-5">
-          <h5 class="font-medium text-xl text-white uppercase border-b border-gray-400 pb-4">Case</h5>
+<div class="leading-[60px]">
+  {% render 'breadcrumb' %}
+</div>
 
-          <li class="py-3 flex items-center justify-between">
-            <span class="text-sm font-normal text-gray-100">Size (mm)</span>
-            <span class="inline-flex items-center text-base font-normal text-warning-100">
+<section class="movment-list bg-black py-20">
+  <div class="container mx-auto">
+    <h6 class="text-4xl	text-white font-medium uppercase mb-11">Specifications</h6>
+    <div class="grid grid-cols-2 gap-6">
+      <div>
+        <ul class="list-none mb-10">
+          <h6 class="font-medium text-xl text-white uppercase border-b border-gray-400 pb-2">Case</h6>
+
+          <li class="py-3 flex items-center">
+            <span class="text-base font-normal text-gray-100 w-3/6">Size (mm)</span>
+            <span class="text-base font-normal text-warning-100 w-3/6">
               {{- product.metafields.golukhan1.size_mm_ -}}
             </span>
           </li>
 
-          <li class="py-3 flex items-center justify-between">
-            <span class="text-sm font-normal text-gray-100">Bezel Material</span>
-            <span class="inline-flex items-center text-base font-normal text-warning-100">
+          <li class="py-3 flex items-center">
+            <span class="text-base font-normal text-gray-100 w-3/6">Bezel Material</span>
+            <span class="text-base font-normal text-warning-100 w-3/6">
               {{- product.metafields.golukhan1.bezel_material -}}
             </span>
           </li>
 
-          <li class="py-3 flex items-center justify-between">
-            <span class="text-sm font-normal text-gray-100">Crystal</span>
-            <span class="inline-flex items-center text-base font-normal text-warning-100">
+          <li class="py-3 flex items-center">
+            <span class="text-base font-normal text-gray-100 w-3/6">Crystal</span>
+            <span class="text-base font-normal text-warning-100 w-3/6">
               {{- product.metafields.golukhan1.crystal -}}
             </span>
           </li>
 
-          <li class="py-3 flex items-center justify-between">
-            <span class="text-sm font-normal text-gray-100">Dial Color</span>
-            <span class="inline-flex items-center text-base font-normal text-warning-100">
+          <li class="py-3 flex items-center">
+            <span class="text-base font-normal text-gray-100 w-3/6">Dial Color</span>
+            <span class="text-base font-normal text-warning-100 w-3/6">
               {{- product.metafields.golukhan1.dial_color -}}
             </span>
           </li>
 
-          <li class="py-3 flex items-center justify-between">
-            <span class="text-sm font-normal text-gray-100">Dial Numbers</span>
-            <span class="inline-flex items-center text-base font-normal text-warning-100">
+          <li class="py-3 flex items-center">
+            <span class="text-base font-normal text-gray-100 w-3/6">Dial Numbers</span>
+            <span class="text-base font-normal text-warning-100 w-3/6">
               {{- product.metafields.golukhan1.dial_numbers -}}
             </span>
           </li>
 
-          <li class="py-3 flex items-center justify-between">
-            <span class="text-sm font-normal text-gray-100">Material</span>
-            <span class="inline-flex items-center text-base font-normal text-warning-100">
+          <li class="py-3 flex items-center">
+            <span class="text-base font-normal text-gray-100 w-3/6">Material</span>
+            <span class="text-base font-normal text-warning-100 w-3/6">
               {{- product.metafields.golukhan1.material -}}
             </span>
           </li>
         </ul>
 
         <ul class="list-none">
-          <h5 class="font-medium text-xl text-white uppercase border-b border-gray-400 pb-4">Bracelet / Strap</h5>
+          <h6 class="font-medium text-xl text-white uppercase border-b border-gray-400 pb-2">Bracelet / Strap</h6>
 
-          <li class="py-3 flex items-center justify-between">
-            <span class="text-sm font-normal text-gray-100">Strap Color</span>
-            <span class="inline-flex items-center text-base font-normal text-warning-100">
+          <li class="py-3 flex items-center">
+            <span class="text-base font-normal text-gray-100 w-3/6">Strap Color</span>
+            <span class="text-base font-normal text-warning-100 w-3/6">
               {{- product.metafields.golukhan1.strap_color -}}
             </span>
           </li>
 
-          <li class="py-3 flex items-center justify-between">
-            <span class="text-sm font-normal text-gray-100">Strap Material</span>
-            <span class="inline-flex items-center text-base font-normal text-warning-100">
+          <li class="py-3 flex items-center">
+            <span class="text-base font-normal text-gray-100 w-3/6">Strap Material</span>
+            <span class="text-base font-normal text-warning-100 w-3/6">
               {{- product.metafields.golukhan1.strap_color -}}
             </span>
           </li>
-          <li class="py-3 flex items-center justify-between">
-            <span class="text-sm font-normal text-gray-100">Strap Clasp</span>
-            <span class="inline-flex items-center text-base font-normal text-warning-100">Folding Clasp</span>
+          <li class="py-3 flex items-center">
+            <span class="text-base font-normal text-gray-100 w-3/6">Strap Clasp</span>
+            <span class="text-base font-normal text-warning-100 w-3/6">
+              {{- product.metafields.golukhan1.strap_clasp -}}
+            </span>
           </li>
 
-          <li class="py-3 flex items-center justify-between">
-            <span class="text-sm font-normal text-gray-100">Strap Clasp Material</span>
-            <span class="inline-flex items-center text-base font-normal text-warning-100">Rose Gold</span>
+          <li class="py-3 flex items-center">
+            <span class="text-base font-normal text-gray-100 w-3/6">Strap Clasp Material</span>
+            <span class="text-base font-normal text-warning-100 w-3/6">
+              {{- product.metafields.golukhan1.strap_clasp_material -}}
+            </span>
           </li>
         </ul>
       </div>
 
       <div>
         <ul class="list-none mb-5">
-          <h5 class="font-medium text-xl text-white uppercase border-b border-gray-400 pb-4">Movement</h5>
+          <h6 class="font-medium text-xl text-white uppercase border-b border-gray-400 pb-2">Movement</h6>
 
-          <li class="py-3 flex items-center justify-between">
-            <span class="text-sm font-normal text-gray-100">Movement</span>
-            <span class="inline-flex items-center text-base font-normal text-warning-100">
+          <li class="py-3 flex items-center">
+            <span class="text-base font-normal text-gray-100 w-3/6">Movement</span>
+            <span class="text-base font-normal text-warning-100 w-3/6">
               {{- product.metafields.golukhan1.movement -}}
             </span>
           </li>
 
-          <li class="py-3 flex items-center justify-between">
-            <span class="text-sm font-normal text-gray-100">Movement Caliber</span>
-            <span class="inline-flex items-center text-base font-normal text-warning-100">Calibre 315 S QA 24H</span>
+          <li class="py-3 flex items-center">
+            <span class="text-base font-normal text-gray-100 w-3/6">Movement Caliber</span>
+            <span class="text-base font-normal text-warning-100 w-3/6">
+              {{- product.metafields.golukhan1.movement_caliber -}}
+            </span>
           </li>
         </ul>
 
         <ul class="list-none">
-          <h5 class="font-medium text-xl text-white uppercase border-b border-gray-400 pb-4">Other</h5>
-
-          <li class="py-3 flex items-center justify-between">
-            <span class="text-sm font-normal text-gray-100">Functions</span>
-            <span class="inline-flex items-center text-base font-normal text-warning-100"
-              >Hours, Minutes, Seconds, Date, Day, Month</span
-            >
+          <h6 class="font-medium text-xl text-white uppercase border-b border-gray-400 pb-2">Other</h6>
+          <li class="py-3 flex items-center">
+            <span class="text-base font-normal text-gray-100 w-3/6">Functions</span>
+            <span class="text-base font-normal text-warning-100 w-3/6">
+              {{- product.metafields.golukhan1.functions -}}
+            </span>
           </li>
         </ul>
       </div>
@@ -272,18 +280,18 @@
   </div>
 </section>
 
-<section class="what-included bg-black pt-5">
+<section class="what-included bg-black pt-5 pb-10">
   <div class="container mx-auto">
     <div class="grid grid-cols-2 gap-4">
       <div>
-        <h3 class="font-medium text-4xl text-white uppercase mb-3">What’s included</h3>
+        <h6 class="font-medium text-4xl text-white uppercase mb-3">What’s included</h6>
         <p class="text-warning-100 font-normal text-2xl">{{ product.metafields.golukhan1.what_s_included }}</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="submariner-section bg-black py-16">
+<section class="product-description-section bg-black pt-20 pb-2">
   <div class="container mx-auto border-t border-warning-900 pt-16">
     <div class="grid grid-cols-12 gap-4">
       <div class="col-span-10">
@@ -296,49 +304,53 @@
 </section>
 
 <section class="submit-an-inquiry bg-black">
-  <div class="container mx-auto">
+  <div class="container mx-auto border-t border-warning-900 pt-28">
     <div>
       <form class="border border-gray-400">
         <div class="grid grid-cols-2 gap-x-6">
-          <div class="p-8">
+          <div class="p-12">
             <h2 class="text-4xl	font-normal	text-warning-100 mb-6">Submit An Inquiry</h2>
             <div class="grid gap-6 span-cols-2">
-              <div class="form-list">
-                <input
-                  type="text"
-                  id="first_name"
-                  class="
-                    bg-gray-500 border-b border-gray-400 text-warning-900  text-base rounded-none focus:outline-none focus:border-b-gray-400
-                    block w-full py-4	px-0 dark:border-b-gray-600 :placeholder-gray-400
-                  "
-                  placeholder="Full Name*"
-                  required
-                >
+              <div class="form-list mb-2">
+                <div class="mb-6">
+                  <input
+                    type="text"
+                    id="first_name"
+                    name="contact[full_name]"
+                    class="
+                      bg-gray-500 border-b border-gray-400 text-warning-900 text-base rounded-none
+                      focus:outline-none focus:border-b-gray-400 block w-full pb-2 px-0 placeholder-gray-700
+                    "
+                    placeholder="Full Name*"
+                    required
+                  >
+                </div>
 
                 <div class="grid grid-cols-2 gap-5">
-                  <div>
+                  <div class="mb-6">
                     <input
                       type="email"
                       id="email"
+                      name="contact[email]"
                       class="
-                        bg-gray-500 border-b border-gray-400 text-warning-900 font-normal text-base rounded-none focus:outline-none focus:border-b-gray-400
-                        block w-full py-4	px-0 dark:border-b-gray-600 :placeholder-gray-400
+                        bg-gray-500 border-b border-gray-400 text-warning-900 font-normal text-base
+                        rounded-none focus:outline-none focus:border-b-gray-400 block w-full pb-2 px-0 placeholder-gray-700
                       "
                       placeholder="Email"
                       required
                     >
                   </div>
 
-                  <div>
+                  <div class="mb-6">
                     <input
-                      type="phone"
+                      type="tel"
                       id="phone"
+                      name="contact[phone]"
                       class="
-                        bg-gray-500 border-b border-gray-400 text-warning-900 font-normal text-base rounded-none focus:outline-none focus:border-b-gray-400
-                        block w-full py-4	px-0 dark:border-b-gray-600 :placeholder-gray-400
+                        bg-gray-500 border-b border-gray-400 text-warning-900 font-normal text-base rounded-none
+                        focus:outline-none focus:border-b-gray-400 block w-full pb-2 px-0 placeholder-gray-700
                       "
                       placeholder="Phone"
-                      required
                     >
                   </div>
                 </div>
@@ -346,21 +358,18 @@
                 <div>
                   <textarea
                     id="message"
-                    rows="4"
-                    class="
-                      bg-gray-500 border-b border-gray-400 text-warning-900 font-normal text-base rounded-none focus:outline-none focus:border-b-gray-400
-                      block w-full py-4	px-0 dark:border-b-gray-600 :placeholder-gray-400
-                    "
-                    placeholder="Enter your message here"
-                  >
-                    </textarea>
+                    name="contact[body]"
+                    rows="2"
+                    class="bg-gray-500 border-b border-gray-400 text-warning-900 font-normal text-base rounded-none focus:outline-none focus:border-b-gray-400 block w-full text-left px-0 placeholder-gray-700"
+                    placeholder="Write your thoughts here..."
+                  ></textarea>
                 </div>
               </div>
             </div>
             <div class="mt-6">
               <button
                 type="submit"
-                class="text-warning-900 border border-warning-900 py-3 px-4 font-medium text-xs uppercase"
+                class="text-warning-900 border border-warning-900 py-4 px-8 font-medium text-xs uppercase"
               >
                 send inquiry
               </button>
@@ -382,11 +391,11 @@
   </div>
 </section>
 
-<section class="product-details-card-slider bg-black py-12">
+<section class="product-details-card-slider bg-black pt-28">
   <div class="container mx-auto relative">
-    <div class="justify-between items-center flex pb-24">
+    <div class="justify-between items-center flex pb-32">
       <div>
-        <h6 class="text-xs text-warning-900 uppercase font-medium">popular by demand</h6>
+        <h6 class="text-xs text-warning-900 uppercase font-medium mb-2 tracking-widest">popular by demand</h6>
         <h2 class="text-6xl text-warning-100">You May Also Like</h2>
       </div>
       <div class="view-all-button">
@@ -403,47 +412,43 @@
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <!-- Slides -->
-        <div class="swiper-container">
-          <div class="swiper-wrapper">
-            {% assign related_products = product.metafields.golukhan1.you_may_also_like.value %}
+        {% assign related_products = product.metafields.golukhan1.you_may_also_like.value %}
 
-            {% for related_product in related_products %}
-              <div class="swiper-slide">
-                <div class="shadow dark:border-gray-300 bg-gray-500">
-                  <div class="mx-auto py-10 border border-gray-300 justify-center flex">
-                    <a href="{{ related_product.url }}" title="{{ related_product.title }}">
-                      <img
-                        src="{{ related_product.featured_image | img_url: '400x400' }}"
-                        alt="{{ related_product.title }}"
-                        width="180px"
-                        height="180px"
-                      >
-                    </a>
-                  </div>
-
-                  <div class="py-3">
-                    <ul class="mb-2">
-                      {% for tag in related_product.tags %}
-                        <li class="inline-block mb-1 font-normal text-sm text-warning-100 uppercase">
-                          {{ tag | link_to_tag: tag }}
-                        </li>
-                      {% endfor %}
-                    </ul>
-
-                    <h5 class="mb-5 text-lg font-medium text-warning-100">
-                      <a href="{{ related_product.url }}">{{ related_product.title }}</a>
-                    </h5>
-
-                    <p class="text-lg font-medium text-warning-900 flex space-x-4">
-                      <del class="text-warning-200">{{ related_product.compare_at_price_max | money }}</del>
-                      <span>{{ related_product.price | money }}</span>
-                    </p>
-                  </div>
-                </div>
+        {% for related_product in related_products %}
+          <div class="swiper-slide">
+            <div class="shadow dark:border-gray-300 bg-gray-500">
+              <div class="mx-auto py-10 border border-gray-300 justify-center flex">
+                <a href="{{ related_product.url }}" title="{{ related_product.title }}">
+                  <img
+                    src="{{ related_product.featured_image | img_url: '400x400' }}"
+                    alt="{{ related_product.title }}"
+                    width="180px"
+                    height="180px"
+                  >
+                </a>
               </div>
-            {% endfor %}
+
+              <div class="py-3">
+                <ul>
+                  {% for tag in related_product.tags %}
+                    <li class="inline-block mb-1 font-normal text-sm text-warning-100 uppercase">
+                      {{ tag | link_to_tag: tag }}
+                    </li>
+                  {% endfor %}
+                </ul>
+
+                <h5 class="mb-3 text-lg font-medium text-warning-100 product-slider-title">
+                  <a href="{{ related_product.url }}">{{ related_product.title }}</a>
+                </h5>
+
+                <p class="text-lg font-medium text-warning-900 flex space-x-4">
+                  <del class="text-warning-200">{{ related_product.compare_at_price_max | money }}</del>
+                  <span>{{ related_product.price | money }}</span>
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
+        {% endfor %}
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
@@ -451,28 +456,26 @@
   </div>
 </section>
 
-
-  <script>
-    $(document).ready(function () {
-      // Initialize Swiper
-      const swiper = new Swiper('.swiper-container', {
-        slidesPerView: 5, // Show 5 slides at a time
-        spaceBetween: 10, // Space between slides
-        loop: true, // Enable looping
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        autoplay: {
-          delay: 3000, // Uncomment to enable autoplay
-        },
-      });
-
-      // Add overflow hidden to the parent container
-      $('.swiper-container').parent().css('overflow', 'hidden');
+<script>
+  $(document).ready(function () {
+    // Initialize Swiper
+    const swiper = new Swiper('.swiper-container', {
+      slidesPerView: 5, // Show 5 slides at a time
+      spaceBetween: 25, // Space between slides
+      loop: true, // Enable looping
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      {% comment %} autoplay: {
+        delay: 3000, // Uncomment to enable autoplay
+      }, {% endcomment %}
     });
-  </script>
 
+    // Add overflow hidden to the parent container
+    $('.swiper-container').parent().css('overflow', 'hidden');
+  });
+</script>
 
 <script>
   // Dropdown toggle functionality
@@ -491,139 +494,181 @@
   });
 </script>
 
- <section class="relative">
-  <div class="container mx-auto">
-    <div class="swiper-container main-slider">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img
-            src="{{ 'images/royal.png' | asset_url }}"
-            width="183px"
-            height="130px"
-            alt="Logo"
-          >
-        </div>
-        <div class="swiper-slide">
-          <img
-            src="{{ 'images/royal.png' | asset_url }}"
-            width="183px"
-            height="130px"
-            alt="Logo"
-          >
-        </div>
+{% comment %}
+  <section class="swiper-slider-card">
+    <div class="container mx-auto relative">
+      <div class="grid grid-cols-3 gap-4">
+        <div class="span-cols-2">
+          <div class="swiper-container main-slider">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img
+                  src="{{ 'images/royal.png' | asset_url }}"
+                  width="183px"
+                  height="130px"
+                  alt="Logo"
+                >
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="{{ 'images/royal.png' | asset_url }}"
+                  width="183px"
+                  height="130px"
+                  alt="Logo"
+                >
+              </div>
 
-        <div class="swiper-slide">
-          <img
-            src="{{ 'images/royal.png' | asset_url }}"
-            width="183px"
-            height="130px"
-            alt="Logo"
-          >
-        </div>
+              <div class="swiper-slide">
+                <img
+                  src="{{ 'images/royal.png' | asset_url }}"
+                  width="183px"
+                  height="130px"
+                  alt="Logo"
+                >
+              </div>
 
-        <div class="swiper-slide">
-          <img
-            src="{{ 'images/royal.png' | asset_url }}"
-            width="183px"
-            height="130px"
-            alt="Logo"
-          >
-        </div>
+              <div class="swiper-slide">
+                <img
+                  src="{{ 'images/royal.png' | asset_url }}"
+                  width="183px"
+                  height="130px"
+                  alt="Logo"
+                >
+              </div>
 
-        <div class="swiper-slide">
-          <img
-            src="{{ 'images/royal.png' | asset_url }}"
-            width="183px"
-            height="130px"
-            alt="Logo"
-          >
-        </div>
+              <div class="swiper-slide">
+                <img
+                  src="{{ 'images/royal.png' | asset_url }}"
+                  width="183px"
+                  height="130px"
+                  alt="Logo"
+                >
+              </div>
 
-        <div class="swiper-slide">
-          <img
-            src="{{ 'images/royal.png' | asset_url }}"
-            width="183px"
-            height="130px"
-            alt="Logo"
-          >
-        </div>
+              <div class="swiper-slide">
+                <img
+                  src="{{ 'images/royal.png' | asset_url }}"
+                  width="183px"
+                  height="130px"
+                  alt="Logo"
+                >
+              </div>
 
-        <div class="swiper-slide">
-          <img
-            src="{{ 'images/twitter.png' | asset_url }}"
-            width="183px"
-            height="130px"
-            alt="Logo"
-          >
-        </div>
-        <div class="swiper-slide">
-          <img
-            src="{{ 'images/footer-logo.svg' | asset_url }}"
-            width="183px"
-            height="130px"
-            alt="Logo"
-          >
+              <div class="swiper-slide">
+                <img
+                  src="{{ 'images/twitter.png' | asset_url }}"
+                  width="183px"
+                  height="130px"
+                  alt="Logo"
+                >
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="{{ 'images/footer-logo.svg' | asset_url }}"
+                  width="183px"
+                  height="130px"
+                  alt="Logo"
+                >
+              </div>
+            </div>
+            <!-- Navigation buttons -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
         </div>
       </div>
-      <!-- Navigation buttons -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+      <div class="swiper-container thumbnail-slider">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img
+              src="{{ 'images/instagram.png' | asset_url }}"
+              width="80px"
+              height="80px"
+              alt="Logo"
+            >
+          </div>
+
+          <div class="swiper-slide">
+            <img
+              src="{{ 'images/facebook.png' | asset_url }}"
+              width="80px"
+              height="80px"
+              alt="Logo"
+            >
+          </div>
+
+          <div class="swiper-slide">
+            <img
+              src="{{ 'images/twitter.png' | asset_url }}"
+              width="80px"
+              height="80px"
+              alt="Logo"
+            >
+          </div>
+
+          <div class="swiper-slide">
+            <img
+              src="{{ 'images/twitter.png' | asset_url }}"
+              width="80px"
+              height="80px"
+              alt="Logo"
+            >
+          </div>
+
+          <div class="swiper-slide">
+            <img
+              src="{{ 'images/twitter.png' | asset_url }}"
+              width="80px"
+              height="80px"
+              alt="Logo"
+            >
+          </div>
+
+          <div class="swiper-slide">
+            <img
+              src="{{ 'images/twitter.png' | asset_url }}"
+              width="80px"
+              height="80px"
+              alt="Logo"
+            >
+          </div>
+
+          <div class="swiper-slide">
+            <img
+              src="{{ 'images/twitter.png' | asset_url }}"
+              width="80px"
+              height="80px"
+              alt="Logo"
+            >
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-  </div>
-  <div class="swiper-container thumbnail-slider">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img
-          src="{{ 'images/instagram.png' | asset_url }}"
-          width="183px"
-          height="130px"
-          alt="Logo"
-        >
-      </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const mainSlider = new Swiper('.main-slider', {
+        loop: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
 
-      <div class="swiper-slide">
-        <img
-          src="{{ 'images/facebook.png' | asset_url }}"
-          width="183px"
-          height="130px"
-          alt="Logo"
-        >
-      </div>
+      const thumbnailSlider = new Swiper('.thumbnail-slider', {
+        direction: 'horizontal', // Align thumbnails horizontally
+        slidesPerView: 'auto',
+        spaceBetween: 10,
+        watchSlidesProgress: true,
+        centeredSlides: true,
+        slideToClickedSlide: true,
+      });
 
-      <div class="swiper-slide">
-        <img
-          src="{{ 'images/twitter.png' | asset_url }}"
-          width="183px"
-          height="130px"
-          alt="Logo"
-        >
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const mainSlider = new Swiper('.main-slider', {
-      loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+      // Link the sliders
+      mainSlider.controller.control = thumbnailSlider;
+      thumbnailSlider.controller.control = mainSlider;
     });
+  </script>
+{% endcomment %}
 
-    const thumbnailSlider = new Swiper('.thumbnail-slider', {
-      direction: 'horizontal', // Align thumbnails horizontally
-      slidesPerView: 'auto',
-      spaceBetween: 10,
-      watchSlidesProgress: true,
-      centeredSlides: true,
-      slideToClickedSlide: true,
-    });
-
-    // Link the sliders
-    mainSlider.controller.control = thumbnailSlider;
-    thumbnailSlider.controller.control = mainSlider;
-  });
-</script> 

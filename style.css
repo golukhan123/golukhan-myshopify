@@ -44,14 +44,18 @@
 }
 
 @font-face {
-  font-family: "Styrene A bold Trial";
-  src: url("./assets/fonts/Styrene\ A\ bold\ Trial.eot");
-  src: url("https://db.onlinewebfonts.com/t/59f205a03656357a8a3e7b0f96541db1.eot?#iefix")format("embedded-opentype"),
-  url("./assets/fonts/Styrene\ A\ Bold\ Trial.woff2")format("woff2"),
-  url("./assets/fonts/Styrene\ A\ Bold\ Trial.woff")format("woff"),
-  url("./assets/fonts/MADEMirage-Bold.ttf")format("truetype"),
-  url("./assets/fonts/Styrene\ A\ Bold\ Trial.svg")format("svg");
+  font-family: 'Styrene A';
+  src: url('./assets/fonts/StyreneA-Black.eot');
+  src: url('StyreneA-Black.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/StyreneA-Black.woff2') format('woff2'),
+      url('./assets/fonts/StyreneA-Black.woff') format('woff'),
+      url('./assets/fonts/StyreneA-Black.ttf') format('truetype'),
+      url('./assets/fonts/StyreneA-Black.svg') format('svg');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
+
 /* For h1 */
 h1 {
  
@@ -79,9 +83,9 @@ h5 {
 }
 
 /* For h6 */
-h6 {
+/* h6 {
   font-family: 'MADE Mirage', sans-serif;
-}
+} */
 p {
   /* font-family: "Styrene A Regular Trial"; */
 }
@@ -103,6 +107,16 @@ p {
     text-overflow: ellipsis;
     height: 65px;
     line-height: 30px;
+}.product-details-card-slider .product-slider-title{
+  -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    word-wrap: break-word;
+    display: flex;
+    min-height: 44px;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+    height: 53px;
 }
 
 .product-details-card-slider .swiper {
@@ -145,7 +159,7 @@ p {
 
 .product-details-card-slider .swiper-button-prev,
 .product-details-card-slider .swiper-button-next {
-  top: 115px;
+  top: 145px;
   right: inherit;
   left: 55px;
 }
@@ -154,66 +168,177 @@ p {
   width: 100%;
   height: 400px;
 }
-
-/* General Swiper Container */
-.swiper-container {
-  overflow: hidden; /* Prevent overflow */
-  width: 100%;
-  height: 100%;
-  position: relative; /* Ensure proper positioning */
+.hiddenp-display{
+  display: none;
 }
-
-/* Wrapper inside Swiper */
-.swiper-wrapper {
-  overflow: hidden; /* Prevent content overflow */
-}
-
-/* Main slider images */
-.main-slider {
-  flex: 1;
-}
-
-.main-slider .swiper-slide img {
+.hidden{
   display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+}
+.product-details-card-slider .swiper-container:before{
+  content: "";
+    padding: 0 !important;
+    background-color: #000;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 100%);
+    mask-image: linear-gradient(to left, transparent 0%, black 100%);
+    position: absolute;
+    width: 250px;
+    height: 400px;
+    left: 0;
+    z-index: 11;
+    bottom: 0;
+    pointer-events: none;
 }
 
-/* Thumbnail slider */
-.thumbnail-slider {
-  width: 120px; /* Adjust thumbnail width */
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+.product-details-card-slider .swiper-container:after{
+  content: "";
+    padding: 0 !important;
+    background-color: #000;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 100%);
+    position: absolute;
+    width: 250px;
+    height: 400px;
+    right: 0;
+    z-index: 11;
+    bottom: 0;
+    pointer-events: none;
 }
 
-.thumbnail-slider .swiper-slide {
-  height: 100px; /* Adjust thumbnail height */
-  width: 100%;
-  opacity: 0.5; /* Make inactive thumbnails less visible */
-  cursor: pointer;
+/* .dropdown-share-icon .hidden{
+  display: block;
+} */
+
+/* Adjust positioning or add a background placeholder */
+select.hide-arrow {
+  background-image: none;
 }
 
-.thumbnail-slider .swiper-slide-thumb-active {
-  opacity: 1; /* Highlight active thumbnail */
-  border: 2px solid #000; /* Optional border for active thumbnail */
+
+/* Hides the default dropdown arrow */
+select.hide-arrow {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent; /* Keeps background black as per your design */
+  position: relative;
+  padding-right: 30px; /* Add space for custom arrow if needed */
+  /* background-image: url('../../images/arrow-down-select.svg'); */
+  background-repeat: no-repeat;
+
 }
 
-.thumbnail-slider img {
+/* Optional: Add a custom arrow icon or remove completely */
+select.hide-arrow::after {
+  content: '';
+  display: none; /* Prevents any custom arrows */
+}
+
+
+
+
+.slider {
+  padding: 32px;
+  color: #fff;
+  position: relative;
+}
+.slider .swiper-container {
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
-
-/* Parent container for the sliders */
-.parent-container {
+.slider__flex {
   display: flex;
-  gap: 20px; /* Adjust space between thumbnails and main slider */
-  justify-content: flex-start;
   align-items: flex-start;
 }
+.slider__col {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  margin-right: 32px;
+}
+.slider__prev,
+.slider__next {
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.slider__prev:focus,
+.slider__next:focus {
+  outline: none;
+}
+.slider__thumbs {
+  height: calc(400px - 96px);
+}
+.slider__thumbs .slider__image {
+  transition: 0.25s;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+.slider__thumbs .slider__image:hover {
+  opacity: 1;
+}
+.slider__thumbs .swiper-slide-thumb-active .slider__image {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+  opacity: 1;
+}
+.slider__images {
+  height: 400px;
+}
+.slider__images .slider__image img {
+  transition: 3s;
+}
+.slider__images .slider__image:hover img {
+  transform: scale(1.1);
+}
+.slider__image {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+}
+.slider__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+@media (max-width: 767.98px) {
+  .slider__flex {
+    flex-direction: column-reverse;
+  }
+  .slider__col {
+    flex-direction: row;
+    align-items: center;
+    margin-right: 0;
+    margin-top: 24px;
+    width: 100%;
+  }
+  .slider__images {
+    width: 100%;
+  }
+  .slider__thumbs {
+    height: 100px;
+    width: calc(100% - 96px);
+    margin: 0 16px;
+  }
+  .slider__prev,
+  .slider__next {
+    height: auto;
+    width: 32px;
+  }
+}
+
+
 
 
 

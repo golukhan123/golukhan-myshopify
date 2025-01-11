@@ -596,6 +596,14 @@ video {
   position: relative;
 }
 
+.right-3\.5 {
+  right: 0.875rem;
+}
+
+.top-3\.5 {
+  top: 0.875rem;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -639,6 +647,14 @@ video {
   margin-bottom: 0.25rem;
 }
 
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+
+.mb-11 {
+  margin-bottom: 2.75rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -663,12 +679,12 @@ video {
   margin-bottom: 1.75rem;
 }
 
-.me-3 {
-  margin-inline-end: 0.75rem;
+.me-2\.5 {
+  margin-inline-end: 0.625rem;
 }
 
-.ms-1 {
-  margin-inline-start: 0.25rem;
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .mt-4 {
@@ -703,8 +719,16 @@ video {
   display: none;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
 .h-2 {
   height: 0.5rem;
+}
+
+.h-3 {
+  height: 0.75rem;
 }
 
 .h-4 {
@@ -735,8 +759,20 @@ video {
   max-height: 0px;
 }
 
+.w-10 {
+  width: 2.5rem;
+}
+
 .w-2 {
   width: 0.5rem;
+}
+
+.w-3 {
+  width: 0.75rem;
+}
+
+.w-3\/6 {
+  width: 50%;
 }
 
 .w-4 {
@@ -759,16 +795,20 @@ video {
   width: 2.25rem;
 }
 
+.w-\[432px\] {
+  width: 432px;
+}
+
 .w-full {
   width: 100%;
 }
 
-.max-w-5xl {
-  max-width: 64rem;
+.min-w-\[275px\] {
+  min-width: 275px;
 }
 
-.max-w-sm {
-  max-width: 24rem;
+.max-w-5xl {
+  max-width: 64rem;
 }
 
 .rotate-180 {
@@ -786,6 +826,10 @@ video {
 
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .grid-cols-4 {
@@ -832,15 +876,19 @@ video {
   gap: 1.5rem;
 }
 
+.gap-7 {
+  gap: 1.75rem;
+}
+
 .gap-x-6 {
   -moz-column-gap: 1.5rem;
        column-gap: 1.5rem;
 }
 
-.space-x-1 > :not([hidden]) ~ :not([hidden]) {
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
-  margin-right: calc(0.25rem * var(--tw-space-x-reverse));
-  margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
+  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-x-3 > :not([hidden]) ~ :not([hidden]) {
@@ -889,11 +937,6 @@ video {
 
 .border-t {
   border-top-width: 1px;
-}
-
-.border-gray-200 {
-  --tw-border-opacity: 1;
-  border-color: rgb(204 204 204 / var(--tw-border-opacity, 1));
 }
 
 .border-gray-300 {
@@ -948,6 +991,10 @@ video {
   background-repeat: no-repeat;
 }
 
+.p-12 {
+  padding: 3rem;
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -960,16 +1007,8 @@ video {
   padding: 0.75rem;
 }
 
-.p-5 {
-  padding: 1.25rem;
-}
-
 .p-6 {
   padding: 1.5rem;
-}
-
-.p-8 {
-  padding: 2rem;
 }
 
 .px-0 {
@@ -980,11 +1019,6 @@ video {
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-}
-
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .px-5 {
@@ -1017,6 +1051,11 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -1037,12 +1076,16 @@ video {
   padding-bottom: 1.5rem;
 }
 
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+
 .pb-12 {
   padding-bottom: 3rem;
 }
 
-.pb-24 {
-  padding-bottom: 6rem;
+.pb-2 {
+  padding-bottom: 0.5rem;
 }
 
 .pb-32 {
@@ -1057,6 +1100,14 @@ video {
   padding-bottom: 1.25rem;
 }
 
+.pb-7 {
+  padding-bottom: 1.75rem;
+}
+
+.pb-8 {
+  padding-bottom: 2rem;
+}
+
 .pt-10 {
   padding-top: 2.5rem;
 }
@@ -1069,16 +1120,48 @@ video {
   padding-top: 4rem;
 }
 
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
+}
+
+.pt-28 {
+  padding-top: 7rem;
+}
+
 .pt-4 {
   padding-top: 1rem;
+}
+
+.pt-40 {
+  padding-top: 10rem;
 }
 
 .pt-5 {
   padding-top: 1.25rem;
 }
 
+.pt-7 {
+  padding-top: 1.75rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
+}
+
+.text-left {
+  text-align: left;
+}
+
 .text-center {
   text-align: center;
+}
+
+.text-end {
+  text-align: end;
 }
 
 .text-2xl {
@@ -1121,6 +1204,10 @@ video {
   line-height: 1rem;
 }
 
+.font-bold {
+  font-weight: 700;
+}
+
 .font-medium {
   font-weight: 500;
 }
@@ -1137,8 +1224,16 @@ video {
   line-height: 1.5rem;
 }
 
+.leading-\[60px\] {
+  line-height: 60px;
+}
+
 .tracking-tighter {
   letter-spacing: -0.05em;
+}
+
+.tracking-widest {
+  letter-spacing: 0.1em;
 }
 
 .text-gray-100 {
@@ -1176,18 +1271,14 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
-.line-through {
-  text-decoration-line: line-through;
+.placeholder-gray-700::-moz-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(111 109 102 / var(--tw-placeholder-opacity, 1));
 }
 
-.placeholder-gray-400::-moz-placeholder {
+.placeholder-gray-700::placeholder {
   --tw-placeholder-opacity: 1;
-  color: rgb(59 58 55 / var(--tw-placeholder-opacity, 1));
-}
-
-.placeholder-gray-400::placeholder {
-  --tw-placeholder-opacity: 1;
-  color: rgb(59 58 55 / var(--tw-placeholder-opacity, 1));
+  color: rgb(111 109 102 / var(--tw-placeholder-opacity, 1));
 }
 
 .placeholder-warning-900::-moz-placeholder {
@@ -1284,15 +1375,21 @@ video {
 }
 
 @font-face {
-  font-family: "Styrene A bold Trial";
+  font-family: 'Styrene A';
 
-  src: url("./assets/fonts/Styrene\ A\ bold\ Trial.eot");
+  src: url('./assets/fonts/StyreneA-Black.eot');
 
-  src: url("https://db.onlinewebfonts.com/t/59f205a03656357a8a3e7b0f96541db1.eot?#iefix")format("embedded-opentype"),
-  url("./assets/fonts/Styrene\ A\ Bold\ Trial.woff2")format("woff2"),
-  url("./assets/fonts/Styrene\ A\ Bold\ Trial.woff")format("woff"),
-  url("./assets/fonts/MADEMirage-Bold.ttf")format("truetype"),
-  url("./assets/fonts/Styrene\ A\ Bold\ Trial.svg")format("svg");
+  src: url('StyreneA-Black.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/StyreneA-Black.woff2') format('woff2'),
+      url('./assets/fonts/StyreneA-Black.woff') format('woff'),
+      url('./assets/fonts/StyreneA-Black.ttf') format('truetype'),
+      url('./assets/fonts/StyreneA-Black.svg') format('svg');
+
+  font-weight: 900;
+
+  font-style: normal;
+
+  font-display: swap;
 }
 
 /* For h1 */
@@ -1327,9 +1424,9 @@ h5 {
 
 /* For h6 */
 
-h6 {
+/* h6 {
   font-family: 'MADE Mirage', sans-serif;
-}
+} */
 
 p {
   /* font-family: "Styrene A Regular Trial"; */
@@ -1352,6 +1449,18 @@ p {
   text-overflow: ellipsis;
   height: 65px;
   line-height: 30px;
+}
+
+.product-details-card-slider .product-slider-title{
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-wrap: break-word;
+  display: flex;
+  min-height: 44px;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  height: 53px;
 }
 
 .product-details-card-slider .swiper {
@@ -1394,7 +1503,7 @@ p {
 
 .product-details-card-slider .swiper-button-prev,
 .product-details-card-slider .swiper-button-next {
-  top: 115px;
+  top: 145px;
   right: inherit;
   left: 55px;
 }
@@ -1404,80 +1513,193 @@ p {
   height: 400px;
 }
 
-/* General Swiper Container */
+.hiddenp-display{
+  display: none;
+}
 
-.swiper-container {
-  overflow: hidden;
-  /* Prevent overflow */
+.hidden{
+  display: block;
+}
+
+.product-details-card-slider .swiper-container:before{
+  content: "";
+  padding: 0 !important;
+  background-color: #000;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 100%);
+  mask-image: linear-gradient(to left, transparent 0%, black 100%);
+  position: absolute;
+  width: 250px;
+  height: 400px;
+  left: 0;
+  z-index: 11;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.product-details-card-slider .swiper-container:after{
+  content: "";
+  padding: 0 !important;
+  background-color: #000;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 100%);
+  position: absolute;
+  width: 250px;
+  height: 400px;
+  right: 0;
+  z-index: 11;
+  bottom: 0;
+  pointer-events: none;
+}
+
+/* .dropdown-share-icon .hidden{
+  display: block;
+} */
+
+/* Adjust positioning or add a background placeholder */
+
+select.hide-arrow {
+  background-image: none;
+}
+
+/* Hides the default dropdown arrow */
+
+select.hide-arrow {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  /* Keeps background black as per your design */
+  position: relative;
+  padding-right: 30px;
+  /* Add space for custom arrow if needed */
+  /* background-image: url('../../images/arrow-down-select.svg'); */
+  background-repeat: no-repeat;
+}
+
+/* Optional: Add a custom arrow icon or remove completely */
+
+select.hide-arrow::after {
+  content: '';
+  display: none;
+  /* Prevents any custom arrows */
+}
+
+.slider {
+  padding: 32px;
+  color: #fff;
+  position: relative;
+}
+
+.slider .swiper-container {
   width: 100%;
   height: 100%;
-  position: relative;
-  /* Ensure proper positioning */
 }
 
-/* Wrapper inside Swiper */
-
-.swiper-wrapper {
-  overflow: hidden;
-  /* Prevent content overflow */
+.slider__flex {
+  display: flex;
+  align-items: flex-start;
 }
 
-/* Main slider images */
-
-.main-slider {
-  flex: 1;
-}
-
-.main-slider .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-/* Thumbnail slider */
-
-.thumbnail-slider {
-  width: 120px;
-  /* Adjust thumbnail width */
-  height: auto;
+.slider__col {
   display: flex;
   flex-direction: column;
+  width: 150px;
+  margin-right: 32px;
+}
+
+.slider__prev,
+.slider__next {
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.slider__prev:focus,
+.slider__next:focus {
+  outline: none;
+}
+
+.slider__thumbs {
+  height: calc(400px - 96px);
+}
+
+.slider__thumbs .slider__image {
+  transition: 0.25s;
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+.slider__thumbs .slider__image:hover {
+  opacity: 1;
+}
+
+.slider__thumbs .swiper-slide-thumb-active .slider__image {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.slider__images {
+  height: 400px;
+}
+
+.slider__images .slider__image img {
+  transition: 3s;
+}
+
+.slider__images .slider__image:hover img {
+  transform: scale(1.1);
+}
+
+.slider__image {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
   overflow: hidden;
 }
 
-.thumbnail-slider .swiper-slide {
-  height: 100px;
-  /* Adjust thumbnail height */
-  width: 100%;
-  opacity: 0.5;
-  /* Make inactive thumbnails less visible */
-  cursor: pointer;
-}
-
-.thumbnail-slider .swiper-slide-thumb-active {
-  opacity: 1;
-  /* Highlight active thumbnail */
-  border: 2px solid #000;
-  /* Optional border for active thumbnail */
-}
-
-.thumbnail-slider img {
+.slider__image img {
+  display: block;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
-/* Parent container for the sliders */
+@media (max-width: 767.98px) {
+  .slider__flex {
+    flex-direction: column-reverse;
+  }
 
-.parent-container {
-  display: flex;
-  gap: 20px;
-  /* Adjust space between thumbnails and main slider */
-  justify-content: flex-start;
-  align-items: flex-start;
+  .slider__col {
+    flex-direction: row;
+    align-items: center;
+    margin-right: 0;
+    margin-top: 24px;
+    width: 100%;
+  }
+
+  .slider__images {
+    width: 100%;
+  }
+
+  .slider__thumbs {
+    height: 100px;
+    width: calc(100% - 96px);
+    margin: 0 16px;
+  }
+
+  .slider__prev,
+  .slider__next {
+    height: auto;
+    width: 32px;
+  }
 }
 
 .focus\:border-b-gray-400:focus {
@@ -1495,37 +1717,10 @@ p {
   --tw-ring-color: rgb(242 191 145 / var(--tw-ring-opacity, 1));
 }
 
-@media (min-width: 768px) {
-  .md\:space-x-2 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-x-reverse: 0;
-    margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-    margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
-  }
-}
-
-.rtl\:space-x-reverse:where([dir="rtl"], [dir="rtl"] *) > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 1;
-}
-
 @media (prefers-color-scheme: dark) {
   .dark\:border-gray-300 {
     --tw-border-opacity: 1;
     border-color: rgb(34 34 33 / var(--tw-border-opacity, 1));
-  }
-
-  .dark\:border-gray-700 {
-    --tw-border-opacity: 1;
-    border-color: rgb(111 109 102 / var(--tw-border-opacity, 1));
-  }
-
-  .dark\:border-b-gray-600 {
-    --tw-border-opacity: 1;
-    border-bottom-color: rgb(42 42 40 / var(--tw-border-opacity, 1));
-  }
-
-  .dark\:bg-gray-800 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
   }
 
   .dark\:text-gray-200 {
@@ -1533,6 +1728,8 @@ p {
     color: rgb(204 204 204 / var(--tw-text-opacity, 1));
   }
 }
+
+
 
 
 

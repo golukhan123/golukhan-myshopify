@@ -1,39 +1,121 @@
-<section class="breadcrumb-section bg-black py-4">
+<section class="breadcrumb-section bg-black pb-4 pt-2">
   <div class="container mx-auto">
-  <nav class="flex" aria-label="Breadcrumb">
-    <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
-  
-      <li class="inline-flex items-center">
-        <a href="#" class="inline-flex items-center font-medium text-xs uppercase text-white">
-          Home
-        </a>
-      </li>
-  
-      <li>
-        <div class="flex items-center">
-          <svg class="w-2 h-2 mx-1 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-          </svg>
-          <a href="#" class="ms-1 text-xs font-medium uppercase text-white">curated watches</a>
-        </div>
-      </li>
-  
-      <li aria-current="page">
-        <div class="flex items-center">
-          <svg class="w-2 h-2 text-white mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-          </svg>
-          <span class="ms-1 font-medium text-xs uppercase text-white">Flowbite</span>
-        </div>
-      </li>
-  
-    </ol>
-  </nav>
-  
-  </div>
-  </section>
-  
+    <nav class="breadcrumb">
+      {% if template.name == 'index' %}
+        <!-- No breadcrumbs on the homepage -->
+      {% else %}
+        <ul class="flex items-center space-x-2">
+          <!-- Home Link -->
+          <li>
+            <a href="{{ routes.root_url }}" class="inline-flex items-center font-medium text-xs uppercase text-warning-900">
+              Home
+            </a>
+          </li>
 
+          <!-- Collection Breadcrumb -->
+          {% if collection %}
+            <li>
+              <svg
+                class="w-2 h-2 mx-1 text-warning-900"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+              </svg>
+            </li>
+            <li>
+              <a href="{{ collection.url }}" class="inline-flex items-center font-medium text-xs uppercase text-warning-900">
+                {{ collection.title }}
+              </a>
+            </li>
+          {% endif %}
+
+          <!-- Product Breadcrumb -->
+          {% if product %}
+            {% if collection %}
+              <li>
+                <svg
+                  class="w-2 h-2 mx-1 text-warning-900"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 6 10"
+                >
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                </svg>
+              </li>
+            {% endif %}
+            <li>
+              <span class="font-medium text-xs uppercase text-warning-900">{{ product.title }}</span>
+            </li>
+          {% endif %}
+
+          <!-- Blog and Article Breadcrumb -->
+          {% if blog %}
+            <li>
+              <svg
+                class="w-2 h-2 mx-1 text-warning-900"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+              </svg>
+            </li>
+            <li>
+              <a href="{{ blog.url }}" class="inline-flex items-center font-medium text-xs uppercase text-warning-900">
+                {{ blog.title }}
+              </a>
+            </li>
+          {% endif %}
+
+          {% if article %}
+            <li>
+              <svg
+                class="w-2 h-2 mx-1 text-warning-900"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+              </svg>
+            </li>
+            
+            <li>
+              <span class="font-medium text-xs uppercase text-warning-900">{{ article.title }}</span>
+            </li>
+          {% endif %}
+
+          <!-- Page Breadcrumb -->
+          {% if page %}
+            <li>
+              <svg
+                class="w-2 h-2 mx-1 text-warning-900"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+              </svg>
+            </li>
+
+            <li>
+              <span class="inline-flex items-center font-medium text-xs uppercase text-warning-900">
+                {{ page.title }}
+              </span>
+            </li>
+          {% endif %}
+          
+        </ul>
+      {% endif %}
+    </nav>
+  </div>
+</section>
 
 
 

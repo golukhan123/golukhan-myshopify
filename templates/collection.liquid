@@ -1,8 +1,10 @@
-<section class="curated-inspected-quality bg-black py-12">
+{% render 'breadcrumb' %}
+
+<section class="curated-inspected-quality bg-black pt-7 pb-7">
   <div class="container mx-auto">
     <div class="grid grid-cols-12 gap-2">
       <div class="col-span-8">
-        <h1 class="text-6xl tracking-tighter mb-4 text-warning-100 font-normal">Curated and Inspected for Quality</h1>
+        <h1 class="text-6xl tracking-tighter mb-5 text-warning-100 font-normal">Curated and Inspected for Quality</h1>
 
         <p class="font-normal text-base text-gray-100">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -14,7 +16,7 @@
   </div>
 </section>
 
-<section class="filter-section bg-black py-12">
+<section class="filter-section bg-black pt-12">
   <div class="container mx-auto border-b border-gray-400 py-6">
     <div class="grid grid-cols-12 gap-2">
       <div class="col-span-9">
@@ -25,15 +27,16 @@
           </button>
         </div>
       </div>
-
-      <div class="col-span-3">
+     
+      <div class="col-span-3 text-end">
         {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
-        <form>
+        <form class="relative" method="get" action="{{ collection.url }}">
           <select
             name="sort_by"
-            class="bg-black border-warning-900 focus:outline-none  focus:ring-warning-900 w-full p-2.5 placeholder-warning-900 text-warning-900 border rounded-none uppercase font-medium text-xs"
+            class="bg-black border-warning-900 focus:outline-none min-w-[275px] focus:ring-warning-900 p-2.5 placeholder-warning-900 text-warning-900 border rounded-none uppercase font-medium text-xs hide-arrow"
             id="SortBy"
             aria-describedby="a11y-refresh-page-message"
+            onchange="this.form.submit()"
           >
             {%- for option in collection.sort_options -%}
               <option
@@ -46,57 +49,19 @@
               </option>
             {%- endfor -%}
           </select>
-        </form>
+          <svg aria-hidden="true" focusable="false" class="icon icon-caret text-warning-900 absolute top-3.5 right-3.5 h-3 w-3" viewBox="0 0 10 6">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"></
+        
       </div>
+      
     </div>
   </div>
 </section>
 
-{% comment %}
-  <h1>{{ collection.title }}</h1>
-  <ul>
-    <li>
-      <a href="{{ product.url }}">{{ product.title }}</a>
-      <p>{{ product.price | money }}</p>
-    </li>
-  </ul>
-{% endcomment %}
-
-{% comment %}
-  {%- paginate collection.products by 1 -%}
-    {% for product in collection.products %}
-      <div class="max-w-sm bg-black border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700">
-        <div class="mx-auto p-6 justify-center flex">
-          <a href="{{ product.url }}" title="{{ product.title }}">
-            <img src="{{ product.featured_image | img_url }}" alt="{{ product.title }}" height="18px" width="180px">
-          </a>
-        </div>
-
-        <div class="p-5">
-          <h2 class="mb-2 text-2xl font-normal text-sm text-white uppercase">
-            <a href="#">{{ product.collections }}</a>
-          </h2>
-
-          <h5 class="mb-3 text-lg font-medium	text-white">
-            <a href="#">{{ product.title }}</a>
-          </h5>
-          <p class="mb-3 text-lg font-medium text-white flex space-x-4">
-            <span>{{ product.price | money }}</span> <span class="line-through">{{ product.compare_at_price_max }}</span>
-          </p>
-        </div>
-      </div>
-    {% endfor %}
-
-    {%- if paginate.pages > 1 -%}
-      {%- render 'pagination', paginate: paginate -%}
-    {%- endif -%}
-  {%- endpaginate -%}
-{% endcomment %}
-
-<section class="products-list bg-black py-12">
+<section class="products-list bg-black pt-8">
   <div class="container mx-auto">
-    {%- paginate collection.products by 4 -%}
-      <div class="grid grid-cols-4 gap-4">
+    {%- paginate collection.products by 6 -%}
+      <div class="grid grid-cols-4 gap-7">
         {% for product in collection.products %}
           <div class="shadow dark:border-gray-300">
             <div class="mx-auto py-10 border border-gray-300 justify-center flex">
@@ -111,7 +76,7 @@
             </div>
 
             <div class="py-3">
-              <ul class="mb-2">
+              <ul>
                 {% for tag in product.tags %}
                   <li class="inline-block mb-1 font-normal text-sm text-warning-100 uppercase">
                     {{ tag | link_to_tag: tag }}
@@ -120,11 +85,11 @@
               </ul>
 
               
-              <h5 class="mb-5 text-lg font-medium	text-warning-100">
+              <h5 class="mb-6 text-lg font-medium	text-warning-100">
                 <a href="{{ product.url }}">{{ product.title }}</a>
               </h5>
 
-              <p class="text-lg font-medium text-warning-900 flex space-x-4">
+              <p class="text-sm font-medium text-warning-900 flex space-x-4">
                 <del class="text-warning-200">{{ product.compare_at_price_max | money }}</del>
                 <span>{{ product.price | money }}</span>
               </p>
@@ -139,7 +104,7 @@
   </div>
 </section>
 
-<section class="accordion-section bg-black">
+<section class="accordion-section bg-black py-16">
   <div class="container mx-auto">
     <div class="grid-cols-12">
       <!-- Accordion Item 1 -->
@@ -179,7 +144,7 @@
           onclick="toggleAccordion(2)"
           class="w-full flex justify-between items-center py-5 text-warning-100 focus:outline-none text-2xl	font-medium"
         >
-          <h3>How do you ensure the quality and authenticity of pre-owned watches?</h3>
+          <h3>Are all pre-owned watches sold by Lemiri & Co authentic?</h3>
           <span id="icon-2" class="text-warning-100 transition-transform duration-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -194,7 +159,7 @@
         </button>
         <div id="content-2" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
           <p class="pb-5 text-sm text-gray-100">
-            What is the difference between pre-owned, vintage, and new watches?
+             How do you ensure the quality and authenticity of pre-owned watches?
           </p>
         </div>
       </div>
@@ -220,6 +185,29 @@
         </button>
         <div id="content-3" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
           <p class="pb-5 text-sm text-gray-100">What is the return policy for pre-owned watches?</p>
+        </div>
+      </div>
+
+      <div>
+        <button
+          onclick="toggleAccordion(4)"
+          class="w-full flex justify-between items-center py-5 text-warning-100 focus:outline-none text-2xl	font-medium"
+        >
+          <h3>What is the difference between pre-owned, vintage, and new watches?</h3>
+          <span id="icon-4" class="text-warning-100 transition-transform duration-300">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              class="w-4 h-4"
+              aria-hidden="true"
+            >
+              <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
+            </svg>
+          </span>
+        </button>
+        <div id="content-4" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+          <p class="pb-5 text-sm text-gray-100">Can I trade-in or sell my watch to Lemiri & Co?</p>
         </div>
       </div>
     </div>
